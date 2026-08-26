@@ -1,0 +1,27 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast!=null){
+            slow = slow.next;
+            if(fast.next!=null && fast!= null)fast = fast.next.next;
+            else return false;
+            if(fast==slow){
+                return true;
+            }
+        }
+        return false;
+    }
+}
+// underStand this pattern because fast and slow pointers will be used in quite large problems.
